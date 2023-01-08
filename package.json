@@ -1,0 +1,29 @@
+{
+  "name": "mean",
+  "version": "1.0.0",
+  "description": "mean app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeithChidamba/MeanStack.git"
+  },
+  "keywords": [
+    "mean",
+    "stack",
+    "app"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KeithChidamba/MeanStack/issues"
+  },
+  "homepage": "https://github.com/KeithChidamba/MeanStack#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.2",
+    "path": "^0.12.7"
+  }
+}
