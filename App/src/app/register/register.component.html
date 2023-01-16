@@ -1,0 +1,56 @@
+<form [formGroup]="SignUpform" style="border:1px solid #ccc"  (submit)="onRegisterSubmit()">
+    <div class="container">
+      <h1>Sign Up</h1>
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+       <!--username-->
+      <div>
+        <label for="email"><b>Username</b></label>
+        <input type="text" placeholder="Enter username" name="username" formControlName="username"  required>  
+        <ul  *ngIf="checkingValidity">
+          <li *ngIf="SignUpform.controls.username.errors?.['pattern']">no spaecial cahracters</li>
+          <li *ngIf="SignUpform.controls.username.errors?.['required']">this field is required</li>
+          <li *ngIf="SignUpform.controls.username.errors?.['minlength']">Must be longer 3 cahracters</li>
+          <li *ngIf="SignUpform.controls.username.errors?.['maxlength']">Must be shorter than 15 cahracters long</li>
+        </ul>
+      </div>
+      <!--email-->
+      <div>
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email" formControlName="email" required>
+      <ul  *ngIf="checkingValidity">
+        <li *ngIf="SignUpform.controls.email.errors?.['email']">Invalid email</li>
+        <li *ngIf="SignUpform.controls.email.errors?.['required']">this field is required</li>
+        <li *ngIf="SignUpform.controls.email.errors?.['minlength']">Must be longer 5 cahracters</li>
+        <li *ngIf="SignUpform.controls.email.errors?.['maxlength']">Must be shorter than 30 cahracters</li>
+        
+      </ul>
+      </div>
+       <!--password-->
+      <Div>
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" formControlName="password"  required>
+              <ul  *ngIf="checkingValidity">
+                <li  *ngIf="SignUpform.controls.password.errors?.['pattern']">no spaecial cahracters</li>
+                <li  *ngIf="SignUpform.controls.password.errors?.['required']">this field is required</li> 
+                <li *ngIf="SignUpform.controls.password.errors?.['minlength']">Must be longer 8 </li>
+                <li *ngIf="SignUpform.controls.password.errors?.['maxlength']">Must be shorter than 35 cahracters long</li>
+              </ul>
+      </Div>
+       <!--password confirmation-->
+      <div>
+        <label for="psw-repeat"><b>Repeat Password</b></label>
+        <input type="password" placeholder="Repeat Password" name="confirm" formControlName="confirm" required>
+        <ul  *ngIf="checkingValidity">
+          <li *ngIf="!PasswordsMatch">passwords dont match</li>
+          <li  *ngIf="SignUpform.controls.confirm.errors?.['required']">this field is required</li>
+          
+        </ul>
+      </div>
+       <!--Submit-->
+     <div class="clearfix">
+        <button type="button" class="cancelbtn" routerLink="/">Cancel</button>
+        <button type="submit" class="signupbtn" (click)="checkValidity()" >Sign Up</button>
+      </div>
+    </div>
+  </form>
