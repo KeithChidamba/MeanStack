@@ -1,6 +1,5 @@
-
 import { Component,OnInit } from '@angular/core';
-import { Validators,FormBuilder,FormGroup,AbstractControl,Validator } from "@angular/forms";
+import { Validators,FormBuilder } from "@angular/forms";
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -8,8 +7,8 @@ import { Validators,FormBuilder,FormGroup,AbstractControl,Validator } from "@ang
 })
 export class RegisterComponent {
   checkingValidity =false;
-  PasswordsMatch= false;
-
+  submitted = false;
+  redirect = '/register'
     constructor(private fb: FormBuilder) { 
 
     } 
@@ -29,29 +28,16 @@ export class RegisterComponent {
       password : ['', Validators.compose([
         Validators.minLength(8),
         Validators.maxLength(30),
-        Validators.required,
-        Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})")
-      ])],
-      confirm: ['', Validators.compose([
         Validators.required
       ])]
     });
     //submit the form
-    onRegisterSubmit(){
-      if(this.SignUpform.valid && this.PasswordsMatch)
-        alert('submitted');
-    }
     //event for validating fields before submition
     checkValidity(){
-      if(!this.SignUpform.valid || !this.PasswordsMatch){
-          alert("please correct form before submitting");
+        this.checkingValidity = true;
+      if(this.SignUpform.valid){
+        this.submitted = true;
+        this.redirect = '/dashboard'
       }
-     this.checkingValidity = true;
-     if(this.SignUpform.controls.password.value === this.SignUpform.controls.confirm.value) {
-        this.PasswordsMatch =true;
-     
-     } 
     }
-
 }
-
