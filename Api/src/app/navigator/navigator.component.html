@@ -2,12 +2,12 @@
 <div>
 
     <ul>
-      <li><a href="" >Logout</a></li>
+      <li><a href="/" (click)="logout()">Logout</a></li>
       <li > <a href="" routerLink="/" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}">Home</a></li>
       <li >
           <a href="" routerLink="/dashboard" [routerLinkActive]="['active']"  [routerLinkActiveOptions]="{exact:true}" class="dropdown">DashBoard</a>
       </li>
-          <li><a href="" >Profile</a></li>
+          <li><a href="" routerLink="/profile" >Profile</a></li>
           <li class="userAccountOptions" ><a href="" routerLink="/register">Register</a></li>
           <li class="userAccountOptions"><a href="" routerLink="">Login</a></li>
           

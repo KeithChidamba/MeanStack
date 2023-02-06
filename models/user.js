@@ -22,7 +22,7 @@ let validPassword = (password)=>{
     {
         return false;
     }else{
-        const regExp = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+        const regExp = new RegExp(/^[a-zA-Z0-9]+$/);
            return regExp.test(password);
     } 
 }

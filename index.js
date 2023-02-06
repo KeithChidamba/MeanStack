@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 var path = require('path');
 const authentication = require('./routes/authentication')(router);
 const config = require('./config/database');
+const cors = require('cors');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.uri,(err)=>{
@@ -13,11 +14,11 @@ if(err){
 }
 else{
 console.log('connected to '+config.db) ;
-
 }
-
 });
-
+app.use(cors({
+    origin:'http://localhost:4200'
+}))
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
