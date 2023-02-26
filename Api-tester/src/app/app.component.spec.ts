@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Api'`, () => {
+  it(`should have as title 'Api-tester'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Api');
+    expect(app.title).toEqual('Api-tester');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Api app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Api-tester app is running!');
   });
 });
